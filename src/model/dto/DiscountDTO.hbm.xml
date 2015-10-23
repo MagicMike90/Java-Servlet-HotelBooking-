@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.dto.DiscountDTO" table="discounts">
+		<meta attribute="class-description">
+			This class contains the details for a room type.
+		</meta>
+		<id name="id" type="int" column="discount_id">
+			<generator class="native"></generator>
+		</id>
+		<many-to-one name="roomType" column="room_type_id" class="model.dto.RoomTypeDTO" lazy="false"/>
+		<many-to-one name="hotel" column="hotel_id" class="model.dto.HotelDTO" lazy="false"/>
+		<property name="startDate" column="start_date" type="calendar_date" />
+		<property name="endDate" column="end_date" type="calendar_date" />
+		<property name="discountPercentage" column="discount_percentage" type="int" />
+	</class>
+</hibernate-mapping>

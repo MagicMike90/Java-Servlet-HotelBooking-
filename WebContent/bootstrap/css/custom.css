@@ -1,0 +1,6 @@
+body { padding-top: 70px; }
+#selectCity{width: 120px; }
+#numRooms{width: 50px; }
+.form-inline .form-group {padding-right: 10px;}
+.form-inline .form-group label {padding-right: 10px;}
+#searchAltButtons form {padding-right: 10px;}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="model.dto.HotelDTO" table="hotels">
+      <meta attribute="class-description">
+         This class contains the details for a hotel.
+      </meta>
+      <id name="id" type="int" column="hotel_id">
+      	<generator class="native"></generator>
+      </id>
+      <property name="city" column="city" type="string"/>
+      <set name="bookings" lazy="false" sort="natural">
+      	<key column="booking_id"/>
+         <one-to-many class="model.dto.BookingDTO"/>
+      </set>
+   </class>
+</hibernate-mapping>

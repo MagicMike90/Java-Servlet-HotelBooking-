@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="model.dto.RoomBookingDTO" table="room_bookings">
+      <meta attribute="class-description">
+         This class contains the room booking records.
+      </meta>
+      <id name="id" type="int" column="room_booking_id">
+         <generator class="native"/>
+      </id>
+      <many-to-one name="booking" column="booking_id" class="model.dto.BookingDTO"/>
+      <property name ="localId" column="local_id" type="int"/>
+      <many-to-one name="roomType" column="room_type_id" class="model.dto.RoomTypeDTO" lazy="false"/>
+      <property name="extraBed" column="extra_bed" type="boolean"/>
+      <many-to-one name="hotelRoom" column="hotel_room_id" class="model.dto.HotelRoomDTO" lazy="false"/>
+   </class>
+</hibernate-mapping>
